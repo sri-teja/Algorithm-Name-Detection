@@ -15,14 +15,27 @@ import re
 
 with open('a.pdf') as f:
     doc = slate.PDF(f)
-print doc
+#print doc
 stopword={}
 stemmed_words=[]
 words_before_stemming=[]
 words = stopwords.words('english')
+filtered_words = []
+#print words
 for i in words:
     stopword[i]=1
-#regex = re.compile(r'\d+\.?\d+|[a-zA-Z0-9]+')
+regex = re.compile(r'\d+\.?\d+|[a-zA-Z0-9]+')
+for word in doc:
+    temp=regex.findall(word)
+    for w in temp:
+        s=w
+        try:
+            stopword[s]
+ 	except:
+            filtered_words.append(s)
+doc=[]
+doc = filtered_words
+#print doc
 for word in doc:
     #temp = regex.findall(word)
     temp = nltk.word_tokenize(word)
@@ -32,20 +45,13 @@ for word in doc:
     #tagger.load(AP_MODEL_LOC)
     #pos_tag = tagger.tag
     temp = nltk.pos_tag(temp)
-    filtered_words = []
-    for w in temp:
-        s = w
-        try:
-            stopword[s]
-        except:
-            filtered_words.append(s)
-    for a in filtered_words:
-        words_before_stemming.append(a)
-        s = PorterStemmer().stem_word(a)
-        
-        if s[1][0]=="N":
-           if len(s[0])>1:
-              stemmed_words.append(s)
-print words_before_stemming
+    if temp[0][1][0]=="N":
+        print temp
+	
+'''for a in filtered_words:
+    words_before_stemming.append(a)
+    s = PorterStemmer().stem_word(a)
+    stemmed_words.append(s)
+#print words_before_stemmin
 print stemmed_words
-
+'''

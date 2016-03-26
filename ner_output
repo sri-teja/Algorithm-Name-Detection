@@ -1,0 +1,837 @@
+206
+(S (PERSON Topic/NNP) Detection/NNP Clustering/NNP Keywords/NNP)
+(S
+  (GPE Christian/JJ)
+  (ORGANIZATION Wartena/NNP Rogier/NNP Brussee/NNP Telematica/NNP)
+  Instituut/NNP
+  P.O/NNP)
+(S
+  Box/NNP
+  589/CD
+  7500/CD
+  AN/NNP
+  Enschede/NNP
+  The/DT
+  (ORGANIZATION Netherlands/NNP)
+  Christian.Wartena/NNP
+  Rogier.Brussee/NNP
+  telin.nl/NN)
+(S
+  We/PRP
+  consider/VBP
+  topic/JJ
+  detection/NN
+  without/IN
+  prior/JJ
+  knowledge/NN
+  category/NN
+  structure/NN
+  possible/JJ
+  categories/NNS)
+(S
+  Keywords/NNS
+  extracted/VBD
+  clustered/VBN
+  based/VBN
+  different/JJ
+  similarity/NN
+  measures/NNS
+  using/VBG
+  induced/JJ
+  k-bisecting/JJ
+  clustering/NN
+  algorithm/NN)
+(S
+  (PERSON Evaluation/NN Wikipedia/NNP)
+  articles/VBZ
+  shows/VBZ
+  clusters/NNS
+  keywords/NNS
+  correlate/VBP
+  strongly/RB
+  (GPE Wikipedia/NNP)
+  categories/NNS
+  articles/NNS)
+(S
+  particular/JJ
+  newly/RB
+  proposed/VBN
+  term/NN
+  distribution/NN
+  taking/VBG
+  co-occurrence/NN
+  terms/NNS
+  account/VBP
+  gives/VBZ
+  best/RBS
+  results/NNS)
+(S
+  Since/IN
+  start/NN
+  given/VBN
+  list/NN
+  topics/NNS
+  treat/NN
+  problem/NN
+  identifying/VBG
+  characterizing/VBG
+  topic/JJ
+  integral/JJ
+  part/NN
+  task/NN)
+(S
+  As/IN
+  consequence/NN
+  rely/RB
+  training/VBG
+  set/VBN
+  forms/NNS
+  external/JJ
+  knowledge/NN
+  get/VB
+  information/NN
+  contained/VBN
+  collection/NN)
+(S The/DT approach/NN follow/JJ consists/VBZ two/CD steps/NNS)
+(S First/NNP extract/JJ list/NN informative/JJ keywords/NNS)
+(S
+  Clustering/VBG
+  key/JJ
+  words/NNS
+  requires/VBZ
+  similarity/JJ
+  distance/NN
+  measure/NN
+  words/NNS)
+(S
+  paper/NN
+  consider/NN
+  distance/NN
+  measures/NNS
+  words/NNS
+  based/VBN
+  statistical/JJ
+  distribution/NN
+  words/NNS
+  corpus/VBP
+  texts/NN)
+(S The/DT organization/NN paper/NN follows/VBZ)
+(S
+  section/NN
+  discuss/NN
+  related/VBN
+  work/NN
+  related/VBN
+  problem/NN
+  keyword/NN
+  extraction/NN)
+(S
+  section/NN
+  discuss/NN
+  distance/NN
+  functions/NNS
+  introduce/VBP
+  different/JJ
+  probability/NN
+  distributions/NNS
+  needed/VBD)
+(S
+  We/PRP
+  end/VBP
+  section/NN
+  brief/NN
+  description/NN
+  clustering/VBG
+  algorithm/NNS
+  used/VBN
+  evaluation/NN)
+(S
+  Finally/RB
+  section/NN
+  present/JJ
+  evaluation/NN
+  topic/NN
+  detection/NN
+  (GPE Wikipedia/NNP)
+  corpus/NN
+  using/VBG
+  clustering/VBG
+  keywords/NNS
+  different/JJ
+  distance/NN
+  measures/NNS)
+(S
+  (GPE Much/JJ)
+  work/NN
+  done/VBN
+  automatic/JJ
+  text/NN
+  categorization/NN)
+(S
+  Most/JJS
+  work/NN
+  concerned/JJ
+  assignment/JJ
+  texts/NN
+  onto/IN
+  small/JJ
+  set/VB
+  given/VBN
+  categories/NNS)
+(S
+  many/JJ
+  cases/NNS
+  form/VBP
+  machine/NN
+  learning/NN
+  used/VBN
+  train/NN
+  algorithm/NN
+  set/VBN
+  manually/RB
+  categorized/JJ
+  documents/NNS)
+(S lot/NN work/NN done/VBN clustering/VBG texts/NN See/NNP e.g/NN)
+(S
+  14/CD
+  12/CD
+  already/RB
+  found/VBN
+  practical/JJ
+  applications/NNS
+  like/IN
+  clustering/VBG
+  search/NN
+  results/NNS
+  see/VBP
+  e.g/JJ)
+(S
+  While/IN
+  similar/JJ
+  spirit/NN
+  similarity/NN
+  measure/NN
+  slightly/RB
+  different/JJ
+  Jensen-Shannon/NNP
+  based/VBN
+  similarity/NN
+  measure/NN
+  use/NN)
+(S
+  Both/DT
+  work/NN
+  conceptually/RB
+  related/JJ
+  latent/JJ
+  semantic/JJ
+  analysis/NN
+  (ORGANIZATION LSA/NNP)
+  even/RB
+  probabilistic/JJ
+  latent/NN
+  semantic/JJ
+  analysis/NN
+  (ORGANIZATION PLSA/NNP)
+  related/VBD
+  work/NN
+  15/CD)
+(S
+  The/DT
+  input/NN
+  methods/NNS
+  (ORGANIZATION LSA/NNP)
+  word/NN
+  occurrence/NN
+  co-occurrence/NN
+  data/NNS
+  terms/NNS)
+(S
+  (GPE Latent/NNP)
+  semantic/JJ
+  analysis/NN
+  naturally/RB
+  leads/VBZ
+  weighted/JJ
+  sums/NNS
+  terms/NNS
+  crucial/JJ
+  difference/NN
+  (ORGANIZATION PLSA/NNP)
+  case/NN
+  non/RB
+  negative/JJ
+  weights/NNS
+  sum/NN
+  allowed/VBD
+  natural/JJ
+  interpretation/NN
+  conditional/JJ
+  probabilities/NNS)
+(S
+  decomposition/NN
+  words/NNS
+  strong/JJ
+  mutual/JJ
+  co-occurrence/NN
+  tend/NN
+  main/JJ
+  latent/NN
+  components/NNS)
+(S
+  work/NN
+  word/NN
+  clusters/NNS
+  similarly/RB
+  based/VBN
+  co-occurrence/NN
+  data/NNS)
+(S
+  achieved/VBN
+  comparing/VBG
+  clustering/VBG
+  distributions/NNS
+  co-occurring/JJ
+  terms/NNS)
+(S
+  Thus/RB
+  center/NN
+  cluster/NN
+  average/JJ
+  distribution/NN
+  cooccurrence/NN
+  distributions/NNS
+  sense/VBP
+  comparable/JJ
+  latent/NN
+  component/NN)
+(S
+  By/IN
+  clustering/VBG
+  understand/JJ
+  grouping/NN
+  terms/NNS
+  documents/NNS
+  items/NNS
+  together/RB
+  based/VBN
+  criterion/NN
+  similarity/NN)
+(S We/PRP represent/VBP topic/JJ cluster/NN keywords/NNS)
+(S
+  We/PRP
+  therefore/VBP
+  need/JJ
+  set/NN
+  keywords/NNS
+  corpus/VBP
+  consideration/NN)
+(S
+  We/PRP
+  simplify/VBP
+  document/JJ
+  bag/NN
+  words/NNS
+  terms/NNS
+  keywords/NNS
+  following/VBG
+  always/RB
+  called/VBN
+  terms/NNS)
+(S We/PRP consider/VBP collection/JJ term/NN occurrences/NNS)
+(S
+  Each/DT
+  term/NN
+  occurrence/NN
+  instance/NN
+  exactly/RB
+  one/CD
+  term/NN
+  t1/NN)
+(S
+  tm/NN
+  occurrences/NNS
+  term/NN
+  found/VBD
+  exactly/RB
+  one/CD
+  source/NN
+  document/NN
+  collection/NN
+  d1/NN)
+(S
+  These/DT
+  distributions/NNS
+  baseline/VBP
+  probability/NN
+  distributions/NNS
+  everything/NN
+  remainder/NN)
+(S Distributions/NNS Co-occurring/JJ Terms/NNS)
+(S
+  The/DT
+  setup/NN
+  previous/JJ
+  section/NN
+  allows/VBZ
+  us/PRP
+  set/VB
+  (PERSON Markov/NNP)
+  chain/NN
+  set/NN
+  documents/NNS
+  terms/NNS
+  allow/VBP
+  us/PRP
+  propagate/JJ
+  probability/NN
+  distributions/NNS
+  terms/NNS
+  document/JJ
+  vice/NN
+  versa/NN)
+(S
+  Given/VBN
+  term/NN
+  distribution/NN
+  compute/VBP
+  one/CD
+  step/NN
+  (PERSON Markov/NNP)
+  chain/NN
+  evolution/NN)
+(S t|d/NN d|t0/NN t0/NN)
+(S
+  t0/JJ
+  distribution/NN
+  weighted/VBD
+  average/JJ
+  term/NN
+  distributions/NNS
+  documents/NNS
+  containing/VBG
+  weight/JJ
+  probability/NN
+  d|z/JJ
+  term/NN
+  occurrence/NN
+  occurrence/NN)
+(S
+  The/DT
+  difference/NN
+  keep/VB
+  track/NN
+  density/NN
+  keyword/NNP
+  document/NN
+  rather/RB
+  mere/JJ
+  occurrence/NN
+  non/NN
+  occurrence/NN
+  keyword/NN
+  document/NN)
+(S Two/CD elements/NNS similar/JJ closer/NN)
+(S
+  For/IN
+  clustering/VBG
+  use/JJ
+  hierarchical/JJ
+  top-down/JJ
+  method/NN
+  requires/VBZ
+  step/VB
+  center/JJ
+  cluster/NN
+  computed/VBD)
+(S
+  Since/IN
+  square/JJ
+  root/NN
+  (PERSON Jensen/NNP Shannon/NNP)
+  divergence/NN
+  proper/JJ
+  metric/JJ
+  two/CD
+  distances/NNS)
+(S JSD/NNP simdoc/NN (ORGANIZATION JSD/NNP Qt/NNP Qs/NNP))
+(S
+  We/PRP
+  used/VBD
+  induced/JJ
+  bisecting/VBG
+  k-means/NNS
+  clustering/VBG
+  algorithm/NN
+  described/VBD
+  based/VBN
+  standard/JJ
+  bisecting/VBG
+  k-means/JJ
+  algorithm/NNS
+  see/VBP
+  e.g/JJ)
+(S An/DT informal/JJ description/NN method/NN follows/VBZ)
+(S
+  We/PRP
+  start/VBP
+  selecting/VBG
+  two/CD
+  elements/NNS
+  largest/JJS
+  distance/NN
+  use/NN
+  seeds/NNS
+  two/CD
+  clusters/NNS)
+(S
+  Next/JJ
+  items/NNS
+  assigned/VBN
+  cluster/RB
+  closest/JJS
+  one/CD
+  two/CD
+  seeds/NNS)
+(S
+  After/IN
+  items/NNS
+  assigned/VBD
+  cluster/NN
+  centers/NNS
+  clusters/NNS
+  computed/VBD)
+(S We/PRP found/VBD two/CD clusters/NNS)
+(S
+  We/PRP
+  also/RB
+  experimented/VBD
+  agglomerative/JJ
+  hierarchical/JJ
+  clustering/NN
+  especially/RB
+  single/JJ
+  link/NN
+  algorithm/NN)
+(S
+  To/TO
+  test/VB
+  compare/JJ
+  different/JJ
+  strategies/NNS
+  compiled/VBD
+  small/JJ
+  corpus/NN
+  (PERSON Dutch/NNP Wikipedia/NNP)
+  articles/VBZ
+  consisting/VBG
+  758/CD
+  documents/NNS)
+(S
+  analysis/NN
+  phase/NN
+  118099/CD
+  term/NN
+  occurrences/NNS
+  26373/CD
+  unique/JJ
+  terms/NNS
+  found/VBD)
+(S
+  painting/VBG
+  architecture/NN
+  trees/NNS
+  monocots/VBP
+  aviation/NN
+  pop/NN
+  music/NN
+  charadriiformes/NNS)
+(S
+  The/DT
+  latter/JJ
+  done/VBN
+  requiring/VBG
+  keyword/NN
+  different/JJ
+  enough/RB
+  background/IN
+  distribution/NN
+  measured/VBN
+  Kullback-Leibler/NNP
+  divergence/NN)
+(S
+  The/DT
+  main/JJ
+  analysis/NN
+  steps/NNS
+  lemmatization/NN
+  multiword/NN
+  lookup/NN
+  named/VBN
+  entity/NN
+  recognition/NN)
+(S
+  Lemmatization/NN
+  tagging/VBG
+  done/VBN
+  using/VBG
+  Treetagger/NNP
+  13/CD)
+(S
+  Tagging/VBG
+  allows/VBZ
+  us/PRP
+  distinguish/JJ
+  content/NN
+  words/NNS
+  function/NN
+  words/NNS)
+(S
+  For/IN
+  multiword/NN
+  lookup/NN
+  used/VBN
+  article/NN
+  titles/NNS
+  Dutch/VBP
+  (GPE Wikipedia/NNP)
+  since/IN
+  reasonable/JJ
+  assume/JJ
+  title/NN
+  represents/VBZ
+  single/JJ
+  concept/NN)
+(S
+  Finally/RB
+  simple/JJ
+  rules/NNS
+  applied/VBN
+  identify/VBP
+  proper/JJ
+  names/NNS)
+(S
+  To/TO
+  evaluate/VB
+  implemented/JJ
+  topic/NN
+  detection/NN
+  methods/NNS
+  compared/VBN
+  results/NNS
+  topics/NNS
+  known/JJ
+  present/JJ
+  collection/NN)
+(S
+  We/PRP
+  benchmarked/VBD
+  selected/VBN
+  (GPE Wikipedia/NNP)
+  topics/NNS
+  collection/NN)
+(S
+  Of/IN
+  course/NN
+  conceivable/JJ
+  collection/NN
+  topics/NNS
+  automatic/JJ
+  methods/NNS
+  might/MD
+  recognize/VB
+  well/RB)
+(S
+  Following/VBG
+  compare/NN
+  set/VBN
+  clusters/NNS
+  keywords/NNS
+  found/VBD
+  using/VBG
+  algorithm/JJ
+  section/NN
+  3.4/CD
+  different/JJ
+  distance/NN
+  measures/NNS
+  different/JJ
+  diameters/NNS)
+(S
+  Since/IN
+  clustering/VBG
+  algorithm/JJ
+  produce/NN
+  clusters/NNS
+  different/JJ
+  size/NN
+  quality/NN
+  result/NN
+  depends/VBZ
+  input/JJ
+  parameter/RB
+  algorithm/VBP
+  threshold/JJ
+  value/NN
+  split/NN
+  cluster/NN)
+(S
+  Its/PRP$
+  quality/NN
+  terms/NNS
+  overall/JJ
+  F-value/NNP
+  compared/VBN
+  distance/NN
+  functions/NNS
+  varying/VBG
+  number/NN
+  clusters/NNS
+  controlled/VBD
+  varying/VBG
+  threshold/NN
+  values/NNS)
+(S
+  particular/JJ
+  cos/NN
+  simtf/NN
+  (ORGANIZATION JSD/NNP)
+  simdoc/NN
+  values/NNS
+  yield/VBP
+  clustering/VBG
+  less/JJR
+  14/CD
+  11/CD
+  clusters/NNS
+  resp/VBP)
+(S
+  case/NN
+  cosine/NN
+  similarity/NN
+  clusters/NNS
+  even/RB
+  two/CD
+  keywords/NNS
+  completely/RB
+  orthogonal/JJ
+  document/NN
+  distributions/NNS)
+(S
+  The/DT
+  overall/JJ
+  F-values/NNP
+  clustering/NN
+  different/JJ
+  similarities/NNS
+  given/VBN
+  (PERSON Figure/NN))
+(S
+  (GPE Cosine/NNP)
+  similarity/NN
+  tf.idf/NN
+  vectors/NNS
+  performed/VBD
+  direct/JJ
+  cosine/NN
+  similarity/NN
+  Jensen-Shannon/NNP
+  distance/NN
+  document/NN
+  distribution/NN
+  The/DT
+  rest/NN
+  category/NN
+  reference/NN
+  categorization/NN
+  real/JJ
+  cluster/NN
+  category/NN
+  keywords/NNS)
+(S
+  Moreover/RB
+  category/NN
+  three/CD
+  times/NNS
+  large/JJ
+  average/JJ
+  size/NN
+  categories/NNS)
+(S
+  We/PRP
+  therefore/RB
+  tested/VBD
+  well/RB
+  positively/RB
+  motivated/JJ
+  categories/NNS
+  detected/VBN
+  computed/VBD
+  overall/JJ
+  F-values/NNS
+  averaging/VBG
+  categories/NNS)
+(S The/DT results/NNS given/VBN (PERSON Figure/NNP))
+(S
+  Results/NNS
+  cosine/VBP
+  similarity/NN
+  tf.idf/NN
+  vector/NN
+  slightly/RB
+  better/RBR
+  clustering/VBG
+  (ORGANIZATION JSD/NNP)
+  simdoc/NN)
+(S
+  present/JJ
+  experiment/NN
+  recently/RB
+  proposed/VBN
+  distribution/NN
+  terms/NNS
+  associated/VBN
+  keyword/NN
+  clearly/RB
+  gives/VBZ
+  best/JJS
+  results/NNS
+  computation/NN
+  distribution/NN
+  relatively/RB
+  expensive/JJ)
+(S
+  The/DT
+  reason/NN
+  fact/NN
+  co-occurrence/NN
+  terms/NNS
+  implicitly/RB
+  taken/VBN
+  account/NN)
+(S The/DT document/NN distribution/NN terms/NNS)
+(S Overall/JJ F-Measure/NNP clustering/NN based/VBN categories/NNS)
+(S Overall/JJ F-Measure/NNP clustering/NN based/VBN categories/NNS)
+(S
+  base/NN
+  measures/NNS
+  tend/VBP
+  sparse/NN
+  vectors/NNS
+  since/IN
+  given/VBN
+  document/NN
+  words/NNS
+  occur/VBP
+  document/NN)
+(S
+  work/NN
+  part/NN
+  (GPE MultimediaN/NNP)
+  project1/NN
+  sponsored/VBD
+  (GPE Dutch/JJ)
+  government/NN
+  contract/NN
+  BSIK/NNP
+  03031/CD)
