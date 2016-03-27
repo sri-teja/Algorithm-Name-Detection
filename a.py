@@ -1,58 +1,57 @@
-#sampleComment
+from os import listdir
+from stop_words import get_stop_words
+#stop_words = get_stop_words('english')
+stop_words=['http','www','com','https','png','jpg','cid','years','document','topic','topics','subtopics']
 import slate
 import nltk
-from nltk.tag import PerceptronTagger
-from nltk.data import find
-#nltk.download()
-#from nltk.tag.stanford import NERTagger
-#nltk.download()
-#nltk.download('all')
-import nltk.corpus
-from nltk import pos_tag, word_tokenize
-import nltk.tag.perceptron
-from nltk.corpus import stopwords
-from nltk import PorterStemmer
 import re
+from nltk import pos_tag, word_tokenize
+from nltk import PorterStemmer
+if 1:
+	"""for fle in listdir("PAKDD-3year"):
+	print fle
+	with open("PAKDD-3year/"+fle) as f:"""
+	with open('TWave High-Order Analysis of Spatiotemporal Data.pdf') as f:
+		doc = slate.PDF(f)
+		print type(doc)
+		#doc=re.findall(r"[\w]+", doc.lower())
+	#print doc
+	named_entity=[]
+	tr=""
+	flag=0
+	for content in doc:
 
-with open('a.pdf') as f:
-    doc = slate.PDF(f)
-#print doc
-stopword={}
-stemmed_words=[]
-words_before_stemming=[]
-words = stopwords.words('english')
-filtered_words = []
-#print words
-for i in words:
-    stopword[i]=1
-regex = re.compile(r'\d+\.?\d+|[a-zA-Z0-9]+')
-for word in doc:
-    temp=regex.findall(word)
-    for w in temp:
-        s=w
-        try:
-            stopword[s]
- 	except:
-            filtered_words.append(s)
-doc=[]
-doc = filtered_words
-#print doc
-for word in doc:
-    #temp = regex.findall(word)
-    temp = nltk.word_tokenize(word)
-    #PICKLE = "averaged_perceptron_tagger.pickle"
-    #AP_MODEL_LOC = 'file:'+str(find('taggers/averaged_perceptron_tagger/'+PICKLE))
-    #tagger = PerceptronTagger(load=False)
-    #tagger.load(AP_MODEL_LOC)
-    #pos_tag = tagger.tag
-    temp = nltk.pos_tag(temp)
-    if temp[0][1][0]=="N":
-        print temp
-	
-'''for a in filtered_words:
-    words_before_stemming.append(a)
-    s = PorterStemmer().stem_word(a)
-    stemmed_words.append(s)
-#print words_before_stemmin
-print stemmed_words
-'''
+		k=content.find('References')					#removing all content in references
+		if k>-1:
+			content=content[:k]
+			#print content
+		#tokenizing paragraphs
+		para=re.split(r'[.\t]*', content)
+
+		for sentence in para:							#sentence tokenization
+		 #print "sentence",sentence,
+		 if re.match('.*\[.*\].*', sentence, re.DOTALL):
+		 	#print sentence
+			listt=re.findall(r"[\w]+", sentence) 	#word tokenization
+			temp = nltk.pos_tag(listt)
+			for z in temp:
+				if z[1]=="NNP":						#merging named entities into a single word
+					tr+=z[0]+" "
+					flag=1
+				elif z[1][0]=="N":
+					#print z
+					if z[0] not in stop_words:
+						named_entity.append(z[0])
+					if flag==1:
+						flag=0
+						named_entity.append(tr)
+						tr=""	
+				else:
+					if flag==1:
+						flag=0
+						named_entity.append(tr)
+						tr=""	
+					del z
+	print "named_entity"
+	for x in named_entity:
+				print x
