@@ -1,0 +1,35 @@
+1. Extract text from pdf  - use pdfbox, ignore files which give parsing 
+error
+2. Perform sentence tokenization, word tokenization, POS tagging from 
+text - use NLTK 3.0, remove all text in reference section of papers
+3. Per paper extract all Named Entities found in it, also look into 
+combining named entities which are occurring next to each other
+4. Filtering step to get algorithm names and discard others:
+    a. Try to detect citation sentences - use regular expressions 
+(citations in this dataset are like [1], [3, 8], [2-4, 10] etc.)
+    b. Only consider named entities which co-occur with citations - come 
+up with your own measure of co-occurrence
+    c. Remove geographical locations - 
+http://stackoverflow.com/questions/34682869/how-do-i-check-whether-a-given-string-is-a-valid-geographical-location-or-not
+    d. Remove university names - try to find an open-source lookup table 
+for this, or any other method
+    e. Remove author names - you can use file attached to this mail
+    f. Any other forms of false positives you want to remove
+5. Store filtered results to text file - 1 file per paper
+6. Analyse result files to get an idea of recall value (amount of 
+actual algorithm names we are able to recover) and precision (amount of 
+noisy items even after filtering)
+7. Use step 6 to create a list of positive entities (actual algorithm 
+names) and negative entities (noisy entities which are being detected so 
+far)
+8. Get all context information (context = 1 full sentence) for each of 
+the positive and negative entities. The output of this step would be 2 
+files, file1 contains a list of sentences which have at-least one 
+occurrence of a positive entity and vice-versa for file2.
+
+    These points are to be coded and tested by you on or before 28th 
+March (2nd deadline). If you have any doubts with the above, come and 
+meet me in A5 - 307 CDE lab. Mail or ping me for timings. For 3rd phase 
+deadline we will work on the semi-supervised distance metric and test 
+time prediction and finding the source paper where a particular 
+algorithm originated.

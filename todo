@@ -1,0 +1,14 @@
+Completed:
+1) extract NNPS from the entire text file and store it in full_NNPS[]
+2) extract the sentences of citations and word tokenise it.
+3) extract the NNPS from the citation sentences and append then with the common NNPS and words in citation sentences.
+4) filter the author names, universities, locations
+
+
+To do:
+5) Come up with a list of algorithms in the areas of Datamining, Machine Learning, Text Mining, Language Processing
+6) Based on this list find the recall and precision of the lists obtained for each pdf.
+7) Come up with false positives manually for some 4 - 5 papers and these will be repeated in most of the papers.
+8) Come up with two context files for each pdf:
+   file1 : Sentences where true positives occur.
+   file2 : Sentences where false positives occur.
