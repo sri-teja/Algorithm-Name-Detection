@@ -109,7 +109,8 @@ for fle in listdir("PAKDD-3year"):
         	if len(l[0])==0:
                     authors_filtered_full_NNPS.add(i)
         #print "filtered_full_NNPS"
-        op.write(authors_filtered_full_NNPS+"\n")
+        op.write(str(authors_filtered_full_NNPS))
+        op.write("\n") 
         print authors_filtered_full_NNPS
          	
 	full_citation_NNPS=[]
@@ -147,7 +148,8 @@ for fle in listdir("PAKDD-3year"):
         	if len(l[0])==0:
                     authors_filtered_citation_NNPS.add(i)
         #print "filtered_citation_NNPs"
-        op.write(authors_filtered_citation_NNPS+"\n")
+        op.write(str(authors_filtered_citation_NNPS))
+        op.write("\n")
         print authors_filtered_citation_NNPS
         op.close()
 
