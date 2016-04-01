@@ -1,7 +1,7 @@
 
 First Download the dataset "PAKDD-3year" folder and now create a new folder named "entities" and keep all the above code files just outside to these two folders.
 
-1) Use text.sh to produce the textfiles form the pdf in the same folder of PAKDD-3year. This file should be out of that folder.
+1) Use text.sh to produce the textfiles from the pdf in the same folder of PAKDD-3year. This file should be out of that folder.
    Format of text files : Name_of_the_pdf_text
 
 2) After that run sent_token.py to generate a file of filtered named entities for each pdf separately. This file should also be out of the PAKDD-3year folder.
