@@ -59,7 +59,7 @@ for fle in listdir("PAKDD-3year"):
 						named_entity.append(tr)
 						tr=""	
 					del z
-	op=open(fle+"entity","wb")
+	op=open(fle+"_entities","wb")
 	print "named_entity"
 	for x in named_entity:
 	    op.write(x+"\n")
