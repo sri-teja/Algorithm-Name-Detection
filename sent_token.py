@@ -93,8 +93,15 @@ for fle in listdir("PAKDD-3year"):
                     if word[1]=="NNP":
                         save+=one+" "
                         flag=1
+                        if nme and nme not in stopword:
+                                full_text_NNPS.append(nme)
+                                nme=""
+
                     elif word[1]=="NN":
                         nme+=one+" "
+                        if save and save not in stopword:
+                            full_text_NNPS.append(save)
+                            save=""
 
                     else:
                         flag=0
