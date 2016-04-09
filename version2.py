@@ -29,11 +29,11 @@ with open('unique_authors.txt') as f:
         authors_list.append(i[0])
 #print authors_list
 count = 0
-text_file_list=[]
+#text_file_list=[]
 for fle in listdir("test1"):
-    if fle=="1_text":
-        #print fle 
-        text_file_list.append(fle)
+    if 1:
+        print fle 
+        #text_file_list.append(fle)
         #print len(text_file_list)
         named_entity=[]
         sent=[]
@@ -65,7 +65,7 @@ for fle in listdir("test1"):
             #print i
             #split different lines
             if flag==0 and i=="Abstract":
-                print i
+                #print i
                 flag=1
                 continue
             try:
@@ -79,25 +79,26 @@ for fle in listdir("test1"):
                     b = word_tokenize(i)
                     #print b                         #word tokeniser
                     for s in b:
-                	full_text_filtered_words.append(s)
-            	    full_text_final_filtered_words.append(full_text_filtered_words) #list of listsof tokenised words per sentence.
+                	full_text_final_filtered_words.append(s)
+            	    #full_text_final_filtered_words.append(full_text_filtered_words) #list of listsof tokenised words per sentence.
                     if re.match('.*\[.*\].*', i, re.DOTALL):   #extracting all the sentences having citations for e.g.[1],[3, 5]
                         citation_sentences.append(i)
-                        citation_filtered_words.append(full_text_filtered_words) 
+                        for s in b:
+                            citation_filtered_words.append(s) 
 			#writing those sentences extracted from the pdf in a file(sentence wise).
                 full_text_filtered_words=[]
     	    except:
                 i = "a" #Do something. 
 	#print citation_sentences
     	full_text_NNPS=[]
-    	for i in full_text_final_filtered_words:
-            print "enter"
-    	    temp = pos_tag(i)
+    	if 1:
+            #print "enter"
+    	    temp = pos_tag(full_text_final_filtered_words)
     	    #print temp
             nnp_flag=0
             nn_flag=0
     	    for word in temp:
-                print word  
+                #print word  
                 one = word[0].decode('string-escape')
                 
                 if(len(one)>1) and (one.find('/')<0) and (one.find('|')<0) and one not in stopword: #removing mathematical terms if any
@@ -156,8 +157,8 @@ for fle in listdir("test1"):
     	print authors_filtered_full_NNPS
          	
     	full_citation_NNPS=[]
-    	for i in citation_filtered_words:
-    	    temp = pos_tag(i)
+    	if 1:
+    	    temp = pos_tag(citation_filtered_words)
     	    #print temp
     	    for word in temp:
                 one = word[0].decode('string-escape')
