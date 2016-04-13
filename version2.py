@@ -64,7 +64,7 @@ for fle in listdir("test1"):
             i = i.replace('\n'," ")
             #print i
             #split different lines
-            if flag==0 and i=="Abstract":
+            if flag==0 and ( i=="Abstract" or i=="Abstract." or i == "ABSTRACT" ):
                 #print i
                 flag=1
                 continue
@@ -89,7 +89,7 @@ for fle in listdir("test1"):
                 full_text_filtered_words=[]
     	    except:
                 i = "a" #Do something. 
-	#print citation_sentences
+	#print full_text_final_filtered_words
     	full_text_NNPS=[]
     	if 1:
             #print "enter"
@@ -99,7 +99,10 @@ for fle in listdir("test1"):
             nn_flag=0
     	    for word in temp:
                 #print word  
-                one = word[0].decode('string-escape')
+		try:
+                    one = word[0].decode('string-escape')
+		except:
+		    continue
                 
                 if(len(one)>1) and (one.find('/')<0) and (one.find('|')<0) and one not in stopword: #removing mathematical terms if any
                     if word[1]=="NNP":
@@ -125,7 +128,7 @@ for fle in listdir("test1"):
                             nn_flag=0
 	#print "full_text_NNPs"
 	#print full_text_NNPS
-   
+  	#print full_text_NNPS 
     	authors_filtered_full_NNPS=set()
     	for i in full_text_NNPS:
             notauniversity=0
@@ -146,6 +149,10 @@ for fle in listdir("test1"):
                 notauniversity=1
             if il.find('algorithm')!=-1 or il.find('technique')!=-1:
                 isalgo=1
+	    if re.match(".*(cid:[0-9]+ *)+.*",il, re.DOTALL):
+                il = re.sub('.*(cid:[0-9]+ *)+.*', '', il)
+		if il is ' ' or il is '':
+		    continue
             if (notauniversity and notdot_flag):
                 authors_filtered_full_NNPS.add(i + "NNP")
 	    
@@ -161,7 +168,10 @@ for fle in listdir("test1"):
     	    temp = pos_tag(citation_filtered_words)
     	    #print temp
     	    for word in temp:
-                one = word[0].decode('string-escape')
+		try:
+                    one = word[0].decode('string-escape')
+		except:
+		    continue
                 if(len(one)>1) and (one.find('/')<0) and (one.find('|')<0): #removing mathematical terms if any
                     if word[1]=="NNP":
                         save+=one+" "
@@ -198,6 +208,10 @@ for fle in listdir("test1"):
                 notauniversity=1
             if il.find('algorithm')!=-1 or il.find('technique')!=-1:
                 isalgo=1
+	    if re.match('.*(cid:[0-9]+ *)+.*',il,re.DOTALL):
+                il = re.sub('.*(cid:[0-9]+ *)+.*', '', il)
+		if il is ' ' or il is '':
+		    continue
             if (notauniversity and notdot_flag):
                 authors_filtered_citation_NNPS.add(i + "NNP")
 	    
@@ -215,3 +229,4 @@ for fle in listdir("test1"):
        
     #if count > 5:
     #      break
+
