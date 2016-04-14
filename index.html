@@ -2,113 +2,99 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Algorithm name Detection in Computer science Papers by sri-teja</title>
+    <title>Algo Name Extraction from research papers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="github-light.css" media="screen">
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Algorithm name Detection in Computer science Papers</h1>
-      <h2 class="project-tagline">Algorithm name detection framework for Research Papers</h2>
+      <h1 class="project-name">Algorithm Name Extraction</h1>
+      <h2 class="project-tagline">Extracting Unique Algo names from Computer Science Research Papers </h2>
       <a href="https://github.com/sri-teja/ire_project" class="btn">View on GitHub</a>
       <a href="https://github.com/sri-teja/ire_project/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/sri-teja/ire_project/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
-      <h2>
-<a id="a-bit-of-on-introduction" class="anchor" href="#a-bit-of-on-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A Bit of on Introduction</h2>
+      <h1>
+<a id="heading" class="anchor" href="#heading" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algorithm Name Extraction from Research Paper</h1>
+<h2>Aim of project</h2>
+<p>Extraction of algorithm name from research papers allows the user of this project to list out the name of algorithms being discussed in the paper by analysing the contents of the research document.
+This project would assist the users to find research papers specific to a subdomain without actually opening and reading each of them.</p>
 
-<p>This task was assigned to Team 41 (which is us) as a part of Major Project for the Information Retrieval and Extraction Course. This project was divided into three phases. In the first phase we were required to come up with a scope document and deliverables for the second and the third phase respectively. In the second and third phase, we had to actually code and then implement what we had proposed.</p>
-
-<h1>
-<a id="implementation" class="anchor" href="#implementation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementation:</h1>
-
-<h3>
-<a id="converting-pdf-to-text" class="anchor" href="#converting-pdf-to-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Converting pdf to text</h3>
-
+<h2>
+<a id="a-bit-of-on-introduction" class="anchor" href="#a-bit-of-on-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<strong>
+<p>Major Project for Information Retrieval and Extraction Course, IIIT Hyderabad.</p></strong>
+<p>
+We are provided with PAKDD dataset of computer science papers. We construct a set of Named Entities from each paper in the data corpus. Identify algorithm names in
+individual research papers, using some modified Named Entity Recognition techniques and Word2Vec models.</p>
+<hr>
+<h2>Overview of the Procedure</h2>
+<p> Each unit in our data corpus(paper publication) consists of large number of named entities like the author name,
+name of university or organization that published the paper, name of algorithm, name of
+technology, references related to the paper, etc. which are extracted as Named Entities for the paper.
+All the information obtained in the set, other than the 'name of algorithm', are noise to our system.
+By using word2vec models we identify the set of true positives and false positives for each unit in dataset and report to user the algorithm names.</p>
+<p>Following are the set of steps used to achieve the task - </p>
 <ul>
-<li><p><strong>Input</strong> : A research paper in the pdf format.</p></li>
-<li><p><strong>Output</strong> : Need to convert that pdf to text format.</p></li>
-<li><p><strong>Processing</strong> : Using PDFMiner</p></li>
+<li><strong>Converting PDF to text</strong></li>
+<li><strong>Sentence Tokenization</strong></li>
+<li><strong>Word Tokenization</strong></li>
+<li><strong>POS Tagging and NER</strong></li>
+<li><strong>Citations Linking & filtering of NER</strong></li>
+<li><strong>Word2Vec to find Algorithm Names</strong></li>
 </ul>
 
-<hr>
+<h2>Tools and Technology Used</h2>
+<p>Some python libraries were used to implement the project. Following is the list of tools and tech used for each step - </p>
+<ul>
+<li><strong>PDF to Text Conversion using pdfminer library</strong>
+<pre><code>
+Usage: 
+pdf2txt.py -O myoutput -o myoutput/myfile.text -t text myfile.pdf
+pdf2txt.py [options] filename.pdf
 
-<pre><code>        pdf2txt.py -O myoutput -o myoutput/myfile.text -t text myfile.pdf
-
-        Usage:
-              pdf2txt.py [options] filename.pdf
-
-        Options:     
-              1) -o output file name
-
-          2) -t output format (text/html/xml/tag[for Tagged PDFs])
-
-          3) -O dirname (triggers extraction of images from PDF into directory)
+Options:    -o output file name
+            -t output format (text/html/xml/tag[for Tagged PDFs])
+            -O dirname (triggers extraction of images from PDF into directory)
 </code></pre>
-
-<hr>
-
-<h3>
-<a id="named-entity-recognition" class="anchor" href="#named-entity-recognition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Named Entity Recognition</h3>
-
-<ul>
-<li><p><strong>Input:</strong> Research paper in the text format.</p></li>
-<li><p><strong>Output :</strong> Noun phrases (NNPS and NNs)</p></li>
-<li><p><strong>Processing :</strong></p></li>
-</ul>
-
-<ol>
-<li>Sentence tokenization</li>
-<li>Merging the divided words at the end of the line [ex: div - \n ision]</li>
-<li>Removing the part before the Abstract and after the Reference.</li>
-<li>Find the citation sentences and extract them</li>
-<li>Do pos_tagging for those sentences.</li>
-<li>Now extract the NNPS and NN. combine the NNPS occurring adjacent to each other in a sentence.</li>
-</ol>
-
-<hr>
-
-<pre><code>def get_ready():
-    print "IT BEGINS!!"
-get_ready()
+</li>
+<li><strong>Using NLTK library to Tokenize text document</strong>
+<br/>
+Sentence Tokenization :
+<pre><code>
+from nltk.tokenize import sent_tokenize
+sent_tokenize_list = sent_tokenize(text_doc_data)
 </code></pre>
+<br/>Word Tokenization :
+<pre><code>
+from nltk.tokenize import word_tokenize
+word_tokenize_list = word_tokenize(sentence)
+</code></pre>
+<br/>
+POS Tagging :
+<pre><code>
+from nltk import pos_tag
+pos_tagged_word= pos_tag(word_tokenize_list)
+</code></pre>
+</li>
+<li><strong>Citations Linking & filtering of NER</strong>
+Using Regex to extract citation sentences, and NNPS and NN pos tags to form a set of named entities.
+</li>
+<li><strong>Trained Word2Vec model is made use of via gensim library</strong>
+<pre><code>
+from gensim import models
+model = models.Word2Vec.load('./model3.dat')
+</code></pre>
+</li>
+<li>Filtering out Algorithm Name using model.similarity</li>
 
-<hr>
-
-<h3>
-<a id="filtration-of-the-named-entities" class="anchor" href="#filtration-of-the-named-entities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Filtration of the Named Entities</h3>
-
-<ul>
-<li>
-<strong>Input :</strong> Named Entities with author names, University names, places.</li>
-<li>
-<strong>Output :</strong> stemmed desired named entities using porter stemmer.</li>
-<li>
-<strong>Processing :</strong> </li>
-<li>Designed the list of authors and universities and places.</li>
-<li>And compare the named entities with these lists and filter them.</li>
-<li>Search for the word algorithm or technique to give more weightage to that particular word as the probability of getting the algorithm name will be high in such sentences.</li>
-<li>Stem these remaining named entities using Porter Stemmer</li>
 </ul>
-
-<h3>
-<a id="trained-set-of-vectors" class="anchor" href="#trained-set-of-vectors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Trained set of vectors</h3>
-
-<ol>
-<li>Gathered the trained set of vectors for the stemmed named entities of some research papers in our field of work(model.dat).</li>
-<li>Used Gensim python module, to load the ‘model.dat’. Used gensim.models.Word2Vec that contains vectors corresponding to each word.</li>
-<li>Form a list of true positives[containing name of actual computer science algorithms] and false positives [most common noise components in each paper] manually by going through the named entities of some papers.</li>
-<li>Compare each named entity extracted from paper with these lists of TPs and FPs and find the similarity between them. If the similarity between a word and another word in TP is greater than a threshold value (0.4 considered in our case), classify it as the TP, otherwise FP.</li>
-</ol>
-
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/sri-teja/ire_project">Algorithm name Detection in Computer science Papers</a> is maintained by <a href="https://github.com/sri-teja">sri-teja</a>.</span>
-
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
