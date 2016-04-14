@@ -70,27 +70,26 @@ Sentence Tokenization :
 from nltk.tokenize import sent_tokenize
 sent_tokenize_list = sent_tokenize(text_doc_data)
 </code></pre>
-<br/>Word Tokenization :
+Word Tokenization :
 <pre><code>
 from nltk.tokenize import word_tokenize
 word_tokenize_list = word_tokenize(sentence)
 </code></pre>
-<br/>
 POS Tagging :
 <pre><code>
 from nltk import pos_tag
 pos_tagged_word= pos_tag(word_tokenize_list)
 </code></pre>
-</li>
+</li><br/>
 <li><strong>Citations Linking & filtering of NER</strong>
 Using Regex to extract citation sentences, and NNPS and NN pos tags to form a set of named entities.
-</li>
+</li><br/>
 <li><strong>Trained Word2Vec model is made use of via gensim library</strong>
 <pre><code>
 from gensim import models
 model = models.Word2Vec.load('./model3.dat')
 </code></pre>
-</li>
+</li><br/>
 <li>Filtering out Algorithm Name using model.similarity</li>
 
 </ul>
