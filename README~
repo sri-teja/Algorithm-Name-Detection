@@ -7,7 +7,7 @@ Command : bash text.sh <foldername>
 3) And Named Entities will be extarcted and stored in "entities" folder 
 Format : <filename>_entities
 
-4) From those entities "phase31.py" will separate True positives and False positives, and give two files in a separate folder "Output"
+4) From those entities "phase3.py" will separate True positives and False positives, and give two files in a separate folder "Output"
 
 Format : Output/<filename>_tp and Output/<filename>_fp
 
